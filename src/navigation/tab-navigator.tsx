@@ -6,19 +6,22 @@ import type { ComponentType } from 'react';
 import * as React from 'react';
 import type { SvgProps } from 'react-native-svg';
 
-import { Settings, Style } from '@/screens';
+import { Settings, Style, Webview } from '@/screens';
 import {
   colors,
   Feed as FeedIcon,
   Settings as SettingsIcon,
   Style as StyleIcon,
+  WebView as WebViewIcon,
 } from '@/ui';
 
 import { FeedNavigator } from './feed-navigator';
+// import { WebViewIcon } from '@/ui/icons/webview-icon';
 
 type TabParamList = {
   Style: undefined;
   FeedNavigator: undefined;
+  WebView: undefined;
   Settings: undefined;
 };
 
@@ -37,6 +40,7 @@ const Tab = createBottomTabNavigator<TabParamList>();
 const tabsIcons: TabIconsType = {
   Style: (props: SvgProps) => <StyleIcon {...props} />,
   FeedNavigator: (props: SvgProps) => <FeedIcon {...props} />,
+  WebView: (props: SvgProps) => <WebViewIcon {...props} />,
   Settings: (props: SvgProps) => <SettingsIcon {...props} />,
 };
 
@@ -55,6 +59,11 @@ const tabs: TabType[] = [
     name: 'FeedNavigator',
     component: FeedNavigator,
     label: 'Feed',
+  },
+  {
+    name: 'WebView',
+    component: Webview,
+    label: 'WebView',
   },
   {
     name: 'Settings',
